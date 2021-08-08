@@ -1,15 +1,18 @@
 //database configuration, in this case i use postgresql
-const { Client } = require('pg')
+const { Pool } = require('pg')
 
-const client = new Client({
+const pool = new Pool({
     user: 'postgres',
     host: 'localhost',
     database: 'crud_bank',
-    password: 'password',
+    password: 'passs',
     port: 5432,
   })
 
-client
+pool
   .connect()
   .then((db) => console.log("Db is connected"))
   .catch(err => console.error(err));
+
+//export db object
+module.exports = pool;

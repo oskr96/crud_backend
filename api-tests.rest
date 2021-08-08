@@ -1,7 +1,34 @@
+### create a new employee
+POST http://localhost:3000/api/emp/createEmployee
+Content-Type: application/json
 
+{
+    "fullname": "mario",
+    "charge": "new owner",
+    "address": "cll 12 k 3",
+    "salary": 20000,
+    "email": "b@new.com",
+    "id_boss" : 0
+}
 
 ### get all employees
 GET http://localhost:3000/api/emp/getEmployees
 
 ### get employee by id
-GET http://localhost:3000/api/emp/getEmployee?12
+GET http://localhost:3000/api/emp/getEmployee&4
+
+### update employee
+PUT http://localhost:3000/api/emp/updateEmployee
+Content-Type: application/json
+
+{   "id_employee": 6,
+    "fullname": "nuevo",
+    "charge": "jr developer",
+    "address": "cll 12 k 3",
+    "salary": 700,
+    "email": "b@new.com",
+    "id_boss" : 3
+}
+
+### delete employee by id
+DELETE  http://localhost:3000/api/emp/deleteEmployee&1

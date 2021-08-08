@@ -8,9 +8,9 @@ const empCtl = require('../controllers/employees.controller.js')
 //assign functions to routes
 router.post('/createEmployee', empCtl.createEmployee);
 router.get('/getEmployees', empCtl.getEmployees);
-router.get('/getEmployee?:id', empCtl.getEmployee);
-router.put('/updateEmployee?:id', empCtl.updateEmployee);
-router.delete('deleteEmployee?:id', empCtl.deleteEmployee);
+router.get('/getEmployee&:id', empCtl.getEmployee);
+router.put('/updateEmployee', empCtl.updateEmployee);
+router.delete('/deleteEmployee&:id', empCtl.deleteEmployee);
 
 //export router
 module.exports = router

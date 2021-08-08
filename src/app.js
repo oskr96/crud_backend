@@ -9,6 +9,10 @@ const app = express()
 //start morgan
 app.use(morgan('dev'))
 
+//middlewares
+app.use(express.json())
+app.use(express.urlencoded({extended: false}))
+
 //set routes
 app.use("/api/emp", require('./routes/employees.routes.js'))
 

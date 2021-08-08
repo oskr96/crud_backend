@@ -1,31 +1,78 @@
 //all functions for crud
 
+const { query } = require("express")
 const { restart } = require("nodemon")
+
+//require db connection
+const pool = require('../db')
 
 //object to store functions
 const empCtl = {}
 
 //create
-empCtl.createEmployee = (req, res) => {
-    res.send("get employee by id")
+empCtl.createEmployee = async(req, res) => {
+    const query = "CALL Employee(0, '"+req.body["fullname"] + "', '"
+                           + req.body["charge"]  + "', '"
+                           + req.body["address"] + "', "
+                           + req.body["salary"] +  ", '"
+                           + req.body["email"] + "', " 
+                           + req.body[ "id_boss"] + ", 'Insert')"
+    console.log(query)
+    try{
+        const response = await pool.query(query)
+        res.status(200).send('El empleado ha sido creado')
+    }
+    catch(error){
+        res.status(400).send('Error creando empleado')
+    }
+    
 }
 
 //read
-empCtl.getEmployees = (req, res) => {
-    res.send("get all employees")
+empCtl.getEmployees = async (req, res) => {
+    const response = await pool.query("SELECT * FROM Employees")
+    res.status(200).json(response.rows)
 }
-empCtl.getEmployee = (req, res) => {
-    res.send("get employee by id")
+
+empCtl.getEmployee = async(req, res) => {
+    const query = "SELECT * FROM Employees WHERE id_employee = " + req.params['id']
+    try{
+        const response = await pool.query(query)
+        res.status(200).json(response.rows)
+    }
+    catch(error){
+        res.status(400).send('Sin datos de empleado')
+    }
 }
 
 //update
-empCtl.updateEmployee = (req, res) => {
-    res.send("get employee by id")
+empCtl.updateEmployee = async (req, res) => {
+    const query = "CALL Employee("+req.body["id_employee"]+", '"
+                            +req.body["fullname"] + "', '"
+                            + req.body["charge"]  + "', '"
+                            + req.body["address"] + "', "
+                            + req.body["salary"] +  ", '"
+                            + req.body["email"] + "', " 
+                            + req.body[ "id_boss"] + ", 'Update')"
+    try{
+        const response = await pool.query(query)
+        res.status(200).send('El empleado ha sido actualizado')
+    }
+    catch(error){
+        res.status(400).send('Error actualizando empleado')
+    }
 }
 
 //delete
-empCtl.deleteEmployee = (req, res) => {
-    res.send("get employee by id")
+empCtl.deleteEmployee = async(req, res) => {
+    const query = "DELETE FROM Employees WHERE id_employee = " + req.params['id']
+    try{
+        const response = await pool.query(query)
+        res.status(200).send('Empleado eliminado')
+    }
+    catch(error){
+        res.status(400).send('Error eliminando empleado')
+    }
 }
 
 //export 

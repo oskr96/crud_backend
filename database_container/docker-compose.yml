@@ -8,6 +8,6 @@ services:
     environment:
       POSTGRES_USER: postgres
       POSTGRES_PASSWORD: passs
-      POSTGRES_DB: bank_crud
+      POSTGRES_DB: crud_bank
     ports:
       - 5432:5432
