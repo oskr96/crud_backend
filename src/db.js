@@ -1,0 +1,1 @@
+//database configuration, in this case i use postgresql
