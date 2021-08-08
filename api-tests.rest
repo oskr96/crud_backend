@@ -1,0 +1,7 @@
+
+
+### get all employees
+GET http://localhost:3000/api/emp/getEmployees
+
+### get employee by id
+GET http://localhost:3000/api/emp/getEmployee?12

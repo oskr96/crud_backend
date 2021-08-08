@@ -1,4 +1,5 @@
-const app = require('./src/app.js')
+require('./src/db')
+const app = require('./src/app')
 
 //start server
 app.listen(app.get('port'))

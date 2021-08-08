@@ -1,18 +1,16 @@
 //this file contains the urls for the api
 const {Router} = require('express')
-const { createEmployee } = require('../controllers/employees.controller')
-
 const router = Router()
 
 //get functions of crud
-const empCtl = require('../controllers/employees.controller')
+const empCtl = require('../controllers/employees.controller.js')
 
 //assign functions to routes
-router.post('/', empCtl.createEmployee)
-router.get('/', empCtl.getEmployees)
-router.get('/:id', empCtl.getEmployee)
-router.put('/:id', empCtl.updateEmployee)
-router.delete('/:id', empCtl.deleteEmployee)
+router.post('/createEmployee', empCtl.createEmployee);
+router.get('/getEmployees', empCtl.getEmployees);
+router.get('/getEmployee?:id', empCtl.getEmployee);
+router.put('/updateEmployee?:id', empCtl.updateEmployee);
+router.delete('deleteEmployee?:id', empCtl.deleteEmployee);
 
 //export router
 module.exports = router

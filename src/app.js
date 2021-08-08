@@ -10,7 +10,7 @@ const app = express()
 app.use(morgan('dev'))
 
 //set routes
-app.use('/api/emp', require('./routes/employees.routes'))
+app.use("/api/emp", require('./routes/employees.routes.js'))
 
 //set port for server 
 app.set('port', 3000)
