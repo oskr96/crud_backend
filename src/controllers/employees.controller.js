@@ -71,7 +71,7 @@ empCtl.deleteEmployee = async(req, res) => {
         res.status(200).json({msg:'Empleado eliminado'})
     }
     catch(error){
-        res.status(400).json({msg:'Error eliminando empleado'})
+        res.status(400).json({msg:'Error eliminando, quizas tenga empleados asignados'})
     }
 }
 
