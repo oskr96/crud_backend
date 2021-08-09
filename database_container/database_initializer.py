@@ -22,11 +22,11 @@ GRANT ALL ON SCHEMA public TO public;
 
 CREATE TABLE Employees (
     id_employee SERIAL PRIMARY KEY,
-    fullname VARCHAR(50),
-    charge VARCHAR(50),
-    address VARCHAR(50),
-    salary INT,
-    email VARCHAR(50),
+    fullname VARCHAR(50) NOT NULL,
+    charge VARCHAR(50) NOT NULL,
+    address VARCHAR(50) NOT NULL,
+    salary INT NOT NULL,
+    email VARCHAR(50) NOT NULL,
     id_boss INT NULL,
     CONSTRAINT boss_fk FOREIGN KEY (id_boss) REFERENCES employees (id_employee)
 );

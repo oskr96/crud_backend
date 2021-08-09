@@ -3,12 +3,12 @@ POST http://localhost:3000/api/emp/createEmployee
 Content-Type: application/json
 
 {
-    "fullname": "mario",
+    "fullname": "nuevo empleado",
     "charge": "new owner",
     "address": "cll 12 k 3",
     "salary": 20000,
     "email": "b@new.com",
-    "id_boss" : 0
+    "id_boss" : 2
 }
 
 ### get all employees
@@ -22,7 +22,7 @@ PUT http://localhost:3000/api/emp/updateEmployee
 Content-Type: application/json
 
 {   "id_employee": 6,
-    "fullname": "nuevo",
+    "fullname": "nuevo empleado",
     "charge": "jr developer",
     "address": "cll 12 k 3",
     "salary": 700,
@@ -31,4 +31,4 @@ Content-Type: application/json
 }
 
 ### delete employee by id
-DELETE  http://localhost:3000/api/emp/deleteEmployee&1
+DELETE  http://localhost:3000/api/emp/deleteEmployee&6

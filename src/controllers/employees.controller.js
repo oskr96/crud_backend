@@ -20,10 +20,10 @@ empCtl.createEmployee = async(req, res) => {
     console.log(query)
     try{
         const response = await pool.query(query)
-        res.status(200).send('El empleado ha sido creado')
+        res.status(200).json({msg:'El empleado ha sido creado'})
     }
     catch(error){
-        res.status(400).send('Error creando empleado')
+        res.status(400).json({msg:'Error creando empleado'})
     }
     
 }
@@ -41,7 +41,7 @@ empCtl.getEmployee = async(req, res) => {
         res.status(200).json(response.rows)
     }
     catch(error){
-        res.status(400).send('Sin datos de empleado')
+        res.status(400).json({msg:'Sin datos de empleado'})
     }
 }
 
@@ -56,10 +56,10 @@ empCtl.updateEmployee = async (req, res) => {
                             + req.body[ "id_boss"] + ", 'Update')"
     try{
         const response = await pool.query(query)
-        res.status(200).send('El empleado ha sido actualizado')
+        res.status(200).json({msg:'El empleado ha sido actualizado'})
     }
     catch(error){
-        res.status(400).send('Error actualizando empleado')
+        res.status(400).json({msg:'Error actualizando empleado'})
     }
 }
 
@@ -68,10 +68,10 @@ empCtl.deleteEmployee = async(req, res) => {
     const query = "DELETE FROM Employees WHERE id_employee = " + req.params['id']
     try{
         const response = await pool.query(query)
-        res.status(200).send('Empleado eliminado')
+        res.status(200).json({msg:'Empleado eliminado'})
     }
     catch(error){
-        res.status(400).send('Error eliminando empleado')
+        res.status(400).json({msg:'Error eliminando empleado'})
     }
 }
 
